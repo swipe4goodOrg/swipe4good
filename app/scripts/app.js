@@ -29,6 +29,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/swipe', {
+        templateUrl: 'views/swipe.html',
+        controller: 'SwipeCtrl',
+        controllerAs: 'swipe'
+      })
       .otherwise({
         redirectTo: '/'
       });
