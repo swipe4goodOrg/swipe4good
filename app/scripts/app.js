@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ngAria',
     'ngMessages',
-    'ngMaterial'
+    'ngMaterial',
+    'datatables'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -54,6 +55,11 @@ angular
         templateUrl: 'views/rankings.html',
         controller: 'RankingsCtrl',
         controllerAs: 'rankings'
+    })
+      .when('/cartodb', {
+        templateUrl: 'views/cartodb.html',
+        controller: 'CartodbCtrl',
+        controllerAs: 'cartodb'
       })
       .otherwise({
         redirectTo: '/'

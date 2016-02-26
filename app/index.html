@@ -10,6 +10,9 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/cartodb.js/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -32,7 +35,7 @@
         <h2>
           <span>Swipe4Good</span>
         </h2>
-      </div>
+        </div>
     </md-toolbar>
 
         </section>
@@ -45,7 +48,7 @@
       <md-content ng-controller="LeftNavCtrl" layout-padding>
         <section layout="column" layout-align="start start" layout-wrap>
             <md-button ng-click="changeView('/swipe')">Swipe!</md-button>
-            <md-button ng-click="changeView('/maps')">Maps</md-button>
+            <md-button ng-click="changeView('/cartodb')">Maps</md-button>
             <md-button ng-click="changeView('/rankings')">Rankings</md-button>
           </section>
       </md-content>
@@ -71,6 +74,20 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/cartodb.js/cartodb.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/colreorder/angular-datatables.colreorder.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/columnfilter/angular-datatables.columnfilter.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/light-columnfilter/angular-datatables.light-columnfilter.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/fixedheader/angular-datatables.fixedheader.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/scroller/angular-datatables.scroller.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/select/angular-datatables.select.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -82,6 +99,7 @@
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/maps.js"></script>
         <script src="scripts/controllers/rankings.js"></script>
+        <script src="scripts/controllers/cartodb.js"></script>
         <!-- endbuild -->
         
         <script src="scripts/controllers/leftNav.js"></script>
