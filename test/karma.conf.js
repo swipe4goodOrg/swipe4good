@@ -43,6 +43,7 @@ module.exports = function(config) {
       'bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js',
       'bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.js',
       'bower_components/angular-datatables/dist/plugins/select/angular-datatables.select.js',
+      'bower_components/ngGeolocation/ngGeolocation.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
