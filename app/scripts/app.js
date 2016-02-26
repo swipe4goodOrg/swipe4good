@@ -15,14 +15,20 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngAria',
+    'ngMessages',
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      /*.when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
+      })*/
+      .when('/', {
+        redirectTo: '/login'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -33,6 +39,21 @@ angular
         templateUrl: 'views/swipe.html',
         controller: 'SwipeCtrl',
         controllerAs: 'swipe'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
+      .when('/maps', {
+        templateUrl: 'views/maps.html',
+        controller: 'MapsCtrl',
+        controllerAs: 'maps'
+      })
+      .when('/rankings', {
+        templateUrl: 'views/rankings.html',
+        controller: 'RankingsCtrl',
+        controllerAs: 'rankings'
       })
       .otherwise({
         redirectTo: '/'
