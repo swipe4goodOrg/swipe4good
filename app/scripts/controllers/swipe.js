@@ -8,12 +8,12 @@
  * Controller of the swipe4goodApp
  */
 angular.module('swipe4goodApp')
-    .controller('SwipeCtrl', ['$scope', '$http', '$geolocation', function($scope, $http, $geolocation) {
+    .controller('SwipeCtrl', ['$scope', '$http', '$geolocation', 'swipe', function($scope, $http, $geolocation, swipe) {
 
         function init() {
-            testMongoPOST();
-            testMongoGET();
             $scope.getGeoLocation = getGeoLocation;
+            $scope.swipeLeft = swipeLeft;
+            $scope.swipeRight = swipeRight;
         };
         init();
 
@@ -42,35 +42,18 @@ angular.module('swipe4goodApp')
         	return myPosition;
         };
 
-        function testMongoPOST() {
-            var url = "https://api.mongolab.com/api/1/databases/swipeforgood/collections/swipeforgood?apiKey=apLxc1c4MaN3o_iALX220Uhj223iDMRW";
-            $http({
-                method: 'POST',
-                data: JSON.stringify({ "x": 222 }),
-                url: url
-            }).
-            success(function(status) {
-                //your code when success
-            }).
-            error(function(status) {
-                //your code when fails
-            });
-        };
+        function swipeLeft() {
+        	getGeoLocation().then(function (position) {
+        		var myPosition = transformPosition(position);
+        		swipe.left(myPosition);	
+        	});
+        }
 
-        function testMongoGET() {
-            var url = "https://api.mongolab.com/api/1/databases/swipeforgood/collections/swipeforgood?apiKey=apLxc1c4MaN3o_iALX220Uhj223iDMRW";
-            $http({
-                method: 'GET',
-                url: url
-            }).
-            success(function(data) {
-                console.log('SwipeCtrl - Mongo GET - onSuccess - data:%O', data);
-            }).
-            error(function(status) {
-                //your code when fails
-            });
-            /*var frm = $(document.myform);
- 		var data = JSON.stringify(frm.serializeArray());*/
-        };
+        function swipeRight() {
+        	getGeoLocation().then(function (position) {
+        		var myPosition = transformPosition(position);
+        		swipe.right($scope.myPosition);
+        	});
+        }
 
     }]);
