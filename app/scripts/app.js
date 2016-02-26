@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'leaflet-directive'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -33,6 +34,11 @@ angular
         templateUrl: 'views/swipe.html',
         controller: 'SwipeCtrl',
         controllerAs: 'swipe'
+      })
+      .when('/cartodb', {
+        templateUrl: 'views/cartodb.html',
+        controller: 'CartodbCtrl',
+        controllerAs: 'cartodb'
       })
       .otherwise({
         redirectTo: '/'
