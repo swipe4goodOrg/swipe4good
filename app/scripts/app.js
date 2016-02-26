@@ -16,15 +16,21 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ngAria',
+    'ngMessages',
+    'ngMaterial',
     'datatables',
     'ngGeolocation'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      /*.when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
+      })*/
+      .when('/', {
+        redirectTo: '/login'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -36,6 +42,16 @@ angular
         controller: 'SwipeCtrl',
         controllerAs: 'swipe'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
+      .when('/rankings', {
+        templateUrl: 'views/rankings.html',
+        controller: 'RankingsCtrl',
+        controllerAs: 'rankings'
+    })
       .when('/cartodb', {
         templateUrl: 'views/cartodb.html',
         controller: 'CartodbCtrl',
