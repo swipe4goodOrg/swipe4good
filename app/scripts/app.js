@@ -19,7 +19,8 @@ angular
     'ngAria',
     'ngMessages',
     'ngMaterial',
-    'datatables'
+    'datatables',
+    'ngGeolocation'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -45,11 +46,6 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
         controllerAs: 'login'
-      })
-      .when('/maps', {
-        templateUrl: 'views/maps.html',
-        controller: 'MapsCtrl',
-        controllerAs: 'maps'
       })
       .when('/rankings', {
         templateUrl: 'views/rankings.html',
