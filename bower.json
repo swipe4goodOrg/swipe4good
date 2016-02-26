@@ -10,7 +10,6 @@
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "angular-leaflet-directive": "^0.10.0",
     "cartodb.js": "^3.15.9"
   },
   "devDependencies": {
