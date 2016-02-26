@@ -34,6 +34,11 @@ angular
         controller: 'SwipeCtrl',
         controllerAs: 'swipe'
       })
+      .when('/cartodb', {
+        templateUrl: 'views/cartodb.html',
+        controller: 'CartodbCtrl',
+        controllerAs: 'cartodb'
+      })
       .otherwise({
         redirectTo: '/'
       });
