@@ -111,8 +111,6 @@ getGeoLocation().then(function (position) {
             $scope.tagFeedbackWait = false;
 
             $scope.swipeValueChanged = function () {
-
-                
                 $("#green-cover").css("display", "block");
                 $("#red-cover").css("display", "block");
                 if ($scope.swipe.value < 5) {
@@ -125,6 +123,7 @@ getGeoLocation().then(function (position) {
                         $scope.tagFeedbackTag = false;
                         $scope.swipeMouseUp();
 
+                    
                     }, 2000);
                 } else if ($scope.swipe.value > 95) {
                     console.log("toast2!");
@@ -138,9 +137,12 @@ getGeoLocation().then(function (position) {
                         $scope.tagFeedbackTag = false;
                         $scope.swipeMouseUp();
 
+
                     }, 2000);
                 }
 
+                
+                
                 if ($scope.swipe.value <= 50) {
                     $("#red-cover").width('' + ($scope.swipe.value - 50) * -2 + '%');
                     $("#green-cover").width('0%');
