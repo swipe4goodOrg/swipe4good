@@ -20,6 +20,9 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <!--json to csv-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.min.js">
   </head>
   <body ng-app="swipe4goodApp">
     <!--[if lte IE 8]>
@@ -52,6 +55,7 @@
             <md-button ng-click="changeView('/swipe')">Swipe!</md-button>
             <md-button ng-click="changeView('/cartodb')">Maps</md-button>
             <md-button ng-click="changeView('/rankings')">Rankings</md-button>
+            <md-button ng-click="changeView('/opendata')">OpenData</md-button>
           </section>
       </md-content>
     </md-sidenav>
@@ -108,5 +112,8 @@
         
         <script src="scripts/controllers/leftNav.js"></script>
         <script src="scripts/controllers/topNav.js"></script>
+        <script src="scripts/controllers/opendata.js"></script>
+        <!--json to csv-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.js"></script>
 </body>
 </html>
