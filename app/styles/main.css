@@ -86,3 +86,159 @@ body {
     padding:2em;
     width:100%;
 }
+
+/* SWIPE VIEW */
+
+.swipe{
+    margin:2em;
+    padding:0.8em;
+    border-radius:20px;
+    background: #dfe5d7; /* Old browsers */
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+background: -moz-linear-gradient(top, #dfe5d7 1%, #b3bead 100%, #fcfff4 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #dfe5d7 1%,#b3bead 100%,#fcfff4 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #dfe5d7 1%,#b3bead 100%,#fcfff4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfe5d7', endColorstr='#fcfff4',GradientType=0 );
+}
+
+.swipe-inner {
+    padding:0.5em;
+    border-radius:20px;
+    background: #fcfff4; /* Old browsers */
+    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 0%, #b3bead 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #fcfff4 0%,#dfe5d7 0%,#b3bead 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #fcfff4 0%,#dfe5d7 0%,#b3bead 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.swipe input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+}
+
+.swipe input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.swipe input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.swipe input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent; /* Hides the slider so custom styles can be added */
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+.swipe input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+.swipe input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+.swipe input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.swipe input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 100%;
+  border: 0.2px solid #010101;
+}
+
+.swipe input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+
+.swipe input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 20px;
+  border: 0.2px solid #010101;
+}
+
+.swipe input[type=range]::-ms-track {
+  width: 100%;
+  height: 20x;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+    border-radius: 20px;
+  color: transparent;
+}
+.swipe input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+.swipe input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+.swipe input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+.swipe input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+
+
+
+
+#red-cover{
+    background-color:red;
+    height:100%;
+    width:0%;
+    position:absolute;
+    left:0;
+}
+
+#green-cover{
+    background-color:green;
+    height:100%;
+    width:0%;
+    position:absolute;
+    right:0;
+}
+

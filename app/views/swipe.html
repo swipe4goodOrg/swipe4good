@@ -1,5 +1,12 @@
-<button type="button" class="btn btn-danger">Swipe left (missing)</button>
-<button type="button" class="btn btn-success">Swipe right (present)</button>
+<div class="swipe">
+<div class="swipe-inner">
+    <input id="slide" type="range" min="0" max="100" step="2" ng-model="swipe.value" ng-change="swipeValueChanged()"/>
+</div>
+</div>
+
+<div id="red-cover"></div>
+<div id="green-cover"></div>
+
 
 <h1>Geolocation test: Location = {{myPosition}}</h1>
 <button ng-click="getGeoLocation()" type="button" class="btn btn-info">Get geolocation</button>

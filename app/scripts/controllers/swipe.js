@@ -10,10 +10,28 @@
 angular.module('swipe4goodApp')
     .controller('SwipeCtrl', ['$scope', '$http', '$geolocation', function($scope, $http, $geolocation) {
 
+        
+        
         function init() {
-            testMongoPOST();
-            testMongoGET();
+            //testMongoPOST();
+            //testMongoGET();
             $scope.getGeoLocation = getGeoLocation;
+            
+            $scope.swipe = {};
+            $scope.swipe.value = 50;
+            
+            $scope.swipeValueChanged = function(){
+                if($scope.swipe.value <= 50){
+                    $("#red-cover").width(''+($scope.swipe.value-50) * -2 + '%');
+                    $("#green-cover").width('0%');
+                    console.log("red: " + ''+($scope.swipe.value-50) * -2 + '%');
+                }else{
+                    $("#green-cover").width(''+($scope.swipe.value-50)*2 + '%');
+                    $("#red-cover").width('0%');
+                    console.log("green: " + ''+($scope.swipe.value-50)*2 + '%');
+                }
+            }
+            
         };
         init();
 
