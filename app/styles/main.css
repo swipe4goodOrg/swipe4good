@@ -7,6 +7,7 @@
 
 body {
   padding: 0;
+  z-index:0;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -87,6 +88,183 @@ body {
     width:100%;
 }
 
+
+/* SWIPE VIEW */
+
+.swipe{
+    margin:2em;
+    padding:0.8em;
+    border-radius:20px;
+
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+
+    clear:both;
+    z-index:9999;
+}
+
+.swipe-inner {
+    padding:0.5em;
+    border-radius:20px;
+}
+
+.swipe input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+}
+
+.swipe input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.swipe input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.swipe input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent; /* Hides the slider so custom styles can be added */
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+.swipe input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #888888;
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+.swipe input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #888888;
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+.swipe input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #888888;
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.swipe input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  box-shadow:         inset 0 0 6px #000000;
+  background: linear-gradient(to right, #f7786b 0%,#f7786b 50%,#79c753 51%,#79c753 100%);
+  border-radius: 20px;
+}
+
+.swipe input[type=range]:focus::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #f7786b 0%,#f7786b 50%,#79c753 51%,#79c753 100%);
+}
+
+.swipe input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  box-shadow:         inset 0 0 6px #000000;
+  background: linear-gradient(to right, #f7786b 0%,#f7786b 50%,#79c753 51%,#79c753 100%);
+  border-radius: 20px;
+}
+
+.swipe input[type=range]::-ms-track {
+  width: 100%;
+  height: 20x;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+    border-radius: 20px;
+  color: transparent;
+}
+.swipe input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: inset 0 0 6px #000000;
+}
+.swipe input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+.swipe input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: inset 0 0 6px #000000;
+}
+.swipe input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+
+md-toast {
+z-index: 10000;
+    top:4em;
+    position:absolute;
+}
+
+
+#red-cover{
+    background-color:#f7786b;
+    height:100%;
+    width:0%;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
+}
+
+#green-cover{
+    background-color:#79c753;
+    height:100%;
+    width:0%;
+    position:absolute;
+    right:0;
+    top:0;
+    z-index: -1;
+}
+
+
+.lock-size {
+    position: absolute;
+    right:1em;
+}
+
+.issue-container md-icon{
+    width: 200px;
+    padding:0;
+    height:200px;
+    margin-top:3em;
+    fill:#444444;
+}
+
+.issue-container .issue-desc{
+    display:block;
+    font-size:1.8em;
+    fill:#444444;
+}
+
+
 /****************************************************************************
 *
 * Left nav
@@ -96,24 +274,4 @@ body {
   z-index: 999999;
 }
 
-/****************************************************************************
-*
-* Navigation animation
-*
-* from: https://scotch.io/tutorials/animating-angularjs-apps-ngview
-* 
-****************************************************************************/
-@keyframes slideInRight {
-    from    { transform:translateX(100%); }
-    to      { transform: translateX(0); }
-}
-@keyframes slideOutLeft {
-    from    { transform:translateX(0%); }
-    to      { transform: translateX(-100%); }
-}
 
-.ng-enter           { animation: slideInRight 0.5s both ease-in; z-index: 8888; }
-.ng-leave           { 
-  animation: slideOutLeft 0.5s both ease-in; z-index: 9999;
-  position: absolute;
-}
