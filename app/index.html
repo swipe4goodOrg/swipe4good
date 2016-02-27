@@ -48,14 +48,17 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
         <md-content>
       <md-toolbar class="md-theme-light">
-        <h1 class="md-toolbar-tools">Sidenav left</h1>
+        <h1 class="md-toolbar-tools"></h1>
       </md-toolbar>
       <md-content ng-controller="LeftNavCtrl" layout-padding>
-        <section layout="column" layout-align="start start" layout-wrap>
-            <md-button ng-click="changeView('/swipe')">Swipe!</md-button>
-            <md-button ng-click="changeView('/cartodb')">Maps</md-button>
-            <md-button ng-click="changeView('/rankings')">Rankings</md-button>
-            <md-button ng-click="changeView('/opendata')">OpenData</md-button>
+          <section class="user-container" layout="row" layout-align="start start" layout-wrap>
+              <img src="images/user.png"/>
+          </section>
+        <section class="button-container" layout="column" layout-align="center center" layout-wrap>
+            <md-button class="md-raised" ng-click="changeView('/swipe')">Swipe!</md-button>
+            <md-button class="md-raised" ng-click="changeView('/cartodb')">Maps</md-button>
+            <md-button class="md-raised" ng-click="changeView('/rankings')">Rankings</md-button>
+            <md-button class="md-raised" ng-click="changeView('/opendata')">OpenData</md-button>
           </section>
       </md-content>
     </md-sidenav>

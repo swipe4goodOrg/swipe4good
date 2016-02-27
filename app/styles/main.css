@@ -274,8 +274,15 @@ z-index: 10000;
   z-index: 999999;
 }
 
-
-md-toolbar {
- background-color:#666666 !important;   
+.user-container img{
+     width:50%;
+    margin:0 auto;
 }
 
+.button-container .md-button{
+ width:100% !important;   
+}
+
+#map>div:nth-child(2){
+  
+}

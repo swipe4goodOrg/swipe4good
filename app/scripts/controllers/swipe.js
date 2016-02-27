@@ -9,15 +9,9 @@
  */
 angular.module('swipe4goodApp')
     .controller('SwipeCtrl', ['$scope', '$http', '$geolocation', '$mdToast', 'swipe', function ($scope, $http, $geolocation, $mdToast, swipe) {
-
-
-
         function init() {
             //testMongoPOST();
             //testMongoGET();
-            
-            
-            
             $scope.getGeoLocation = getGeoLocation;
 
             $scope.swipe = {};
@@ -71,17 +65,17 @@ angular.module('swipe4goodApp')
             }
 
             $scope.tagYes = function (issue) {
-getGeoLocation().then(function (position) {
-        		var myPosition = transformPosition(position);
-        		swipe.right($scope.myPosition);
-        	});
+                getGeoLocation().then(function (position) {
+            		var myPosition = transformPosition(position);
+            		swipe.right($scope.myPosition,$scope.selectedIssue);
+            	});
             }
 
             $scope.tagNo = function (issue) {
                 getGeoLocation().then(function (position) {
-        		var myPosition = transformPosition(position);
-        		swipe.left(myPosition);	
-        	});
+            		var myPosition = transformPosition(position);
+            		swipe.left(myPosition,$scope.selectedIssue);	
+            	});
             }
 
             $scope.toggleIssuesButton = function () {
@@ -111,12 +105,10 @@ getGeoLocation().then(function (position) {
             $scope.tagFeedbackWait = false;
 
             $scope.swipeValueChanged = function () {
-
-                
                 $("#green-cover").css("display", "block");
                 $("#red-cover").css("display", "block");
                 if ($scope.swipe.value < 5) {
-                    console.log("toast!");
+                    //console.log("toast!");
                     $scope.tagYes($scope.selectedIssue);
                     $scope.showSimpleToast("Location Tagged Successfully!");
                     $scope.tagFeedbackTag = true;
@@ -125,9 +117,10 @@ getGeoLocation().then(function (position) {
                         $scope.tagFeedbackTag = false;
                         $scope.swipeMouseUp();
 
+                    
                     }, 2000);
                 } else if ($scope.swipe.value > 95) {
-                    console.log("toast2!");
+                    //console.log("toast2!");
                     $scope.tagFeedbackTag = true;
                     $scope.tagYes($scope.selectedIssue);
                     $scope.showSimpleToast("Location Tagged Successfully!");
@@ -138,23 +131,26 @@ getGeoLocation().then(function (position) {
                         $scope.tagFeedbackTag = false;
                         $scope.swipeMouseUp();
 
+
                     }, 2000);
                 }
 
+                
+                
                 if ($scope.swipe.value <= 50) {
                     $("#red-cover").width('' + ($scope.swipe.value - 50) * -2 + '%');
                     $("#green-cover").width('0%');
-                    console.log("red: " + '' + ($scope.swipe.value - 50) * -2 + '%');
+                    //console.log("red: " + '' + ($scope.swipe.value - 50) * -2 + '%');
                 } else {
                     $("#green-cover").width('' + ($scope.swipe.value - 50) * 2 + '%');
                     $("#red-cover").width('0%');
-                    console.log("green: " + '' + ($scope.swipe.value - 50) * 2 + '%');
+                    //console.log("green: " + '' + ($scope.swipe.value - 50) * 2 + '%');
                 }
             }
 
 
             $scope.swipeMouseUp = function () {
-                console.log("mouseup ");
+                //console.log("mouseup ");
                 if (!$scope.tagFeedbackTag) {
                     window.setTimeout(function () {
                         $scope.swipe.value = 50;
@@ -168,19 +164,19 @@ getGeoLocation().then(function (position) {
             }
 
             $scope.animateSlide = function () {
-                console.log("animate");
+                //console.log("animate");
                 if ($scope.swipe.value < 50) {
                     $scope.swipe.value = $scope.swipe.value + 1;
                     $("#slide").val($scope.swipe.value);
                     $scope.swipeValueChanged();
                     window.setTimeout($scope.animateSlide, 100);
-                    console.log("minor " + $scope.swipe.value);
+                    //console.log("minor " + $scope.swipe.value);
                 } else if ($scope.swipe.value > 50) {
                     $scope.swipe.value = $scope.swipe.value - 1;
                     $("#slide").val($scope.swipe.value);
                     $scope.swipeValueChanged();
                     window.setTimeout($scope.animateSlide, 100);
-                    console.log("major " + $scope.swipe.value);
+                    //console.log("major " + $scope.swipe.value);
                 }
             }
         };

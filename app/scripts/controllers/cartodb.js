@@ -34,8 +34,8 @@ angular.module('swipe4goodApp')
                   var query = "select * from pruebapuntosalicante";//Esta tabla deberá ser table_swipe4good en todas las select
                   if(area == 'all') {
                     query = "select * from pruebapuntosalicante ";// area > " + area;
-                    //layer.setSQL(query);
-                    //layer.setCartoCSS("#table_name [swipe=false]{marker-fill: #D6301D;} #table_name [swipe=true]{marker-fill: #229A00;}  ")
+                    layer.setSQL(query);
+                    layer.setCartoCSS("#table_name [swipe=false]{marker-fill: #D6301D;} #table_name [swipe=true]{marker-fill: #229A00;}  ")
                   }
                   else if(area == 'true')
                   {
@@ -58,7 +58,7 @@ angular.module('swipe4goodApp')
         function initCartoDB2(){
 
            cartodb.createVis('map', 'https://swipe4good.cartodb.com/api/v2/viz/cf5f6fc4-dcc9-11e5-a11c-0e3ff518bd15/viz.json', {
-                        shareable: true,
+                        //shareable: true,
                         //title: true,
                         //description: true,
                         //search: true,
