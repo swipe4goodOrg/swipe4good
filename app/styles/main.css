@@ -283,6 +283,15 @@ z-index: 10000;
  width:100% !important;   
 }
 
-#map>div:nth-child(2){
-  
+.md-toast > div{
+    background-color:#00802b;   
+}
+
+md-toolbar{
+ background-color:#f7786b !important;   
+}
+
+.button-fav{
+ background-color:#FFBBBB !important;
+ border: 1px #BB9999 solid;
 }
