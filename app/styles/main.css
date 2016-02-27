@@ -86,11 +86,7 @@ body {
     padding:2em;
     width:100%;
 }
-/*
-#view {
-  z-index: -1;
-}
-*/
+
 /****************************************************************************
 *
 * Left nav
@@ -98,4 +94,26 @@ body {
 ****************************************************************************/
 .md-sidenav-left {
   z-index: 999999;
+}
+
+/****************************************************************************
+*
+* Navigation animation
+*
+* from: https://scotch.io/tutorials/animating-angularjs-apps-ngview
+* 
+****************************************************************************/
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
+}
+@keyframes slideOutLeft {
+    from    { transform:translateX(0%); }
+    to      { transform: translateX(-100%); }
+}
+
+.ng-enter           { animation: slideInRight 0.5s both ease-in; z-index: 8888; }
+.ng-leave           { 
+  animation: slideOutLeft 0.5s both ease-in; z-index: 9999;
+  position: absolute;
 }

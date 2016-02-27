@@ -20,12 +20,13 @@ angular
     'ngMessages',
     'ngMaterial',
     'datatables',
-    'ngGeolocation'
+    'ngGeolocation',
+    'ngCsv'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: '/login'
+        redirectTo: '/splash'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -37,20 +38,25 @@ angular
         controller: 'SwipeCtrl',
         controllerAs: 'swipe'
       })
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
-      })
       .when('/rankings', {
         templateUrl: 'views/rankings.html',
         controller: 'RankingsCtrl',
         controllerAs: 'rankings'
-    })
+      })
       .when('/cartodb', {
         templateUrl: 'views/cartodb.html',
         controller: 'CartodbCtrl',
         controllerAs: 'cartodb'
+      })
+      .when('/opendata', {
+        templateUrl: 'views/opendata.html',
+        controller: 'OpendataCtrl',
+        controllerAs: 'opendata'
+      })
+      .when('/splash', {
+        templateUrl: 'views/splash.html',
+        controller: 'SplashCtrl',
+        controllerAs: 'splash'
       })
       .otherwise({
         redirectTo: '/'
