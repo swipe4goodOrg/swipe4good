@@ -58,7 +58,7 @@ angular.module('swipe4goodApp')
             $scope.recentIssues[2] = $scope.issues[2];
             $scope.recentIssues[3] = $scope.issues[3];
 
-            $scope.selectedIssue = $scope.issues[0];
+            $scope.selectedIssue = $scope.issues[3];
 
             $scope.changeIssue = function (issue) {
                 $scope.selectedIssue = issue;
@@ -99,7 +99,11 @@ angular.module('swipe4goodApp')
 
             $scope.showSimpleToast = function (msg) {
 
-                $mdToast.show($mdToast.simple().textContent(msg));
+                $mdToast.show({
+        template: '<md-toast class="md-toast">' + msg + '</md-toast>',
+        hideDelay: 3000,
+        position: 'center center'
+    });
             };
 
             $scope.tagFeedbackWait = false;
