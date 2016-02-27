@@ -14,28 +14,34 @@ angular.module('swipe4goodApp')
         function init() {
         	self.left = swipeLeft;
         	self.right = swipeRight;
+            console.log("cosasaaaaa");
         };
         init();
 
-        function swipeLeft(position) {
-        	swipe(false, position);
+        function swipeLeft(position,selectedIssue) {
+            console.log("cosasx");
+        	swipe(false, position,selectedIssue);
         };
 
-        function swipeRight(position) {
-        	swipe(true, position);
+        function swipeRight(position,selectedIssue) {
+        	console.log("cosasy");
+            swipe(true, position,selectedIssue);
+
         };
 
-        function swipe(isPresent, position) {
+        function swipe(isPresent, position, selectedIssue) {
         	//category name from: http://wiki.openstreetmap.org/wiki/Key:ramp
         	var dataModel = {
         		lat: position.lat,
         		long: position.long,
         		timestamp: position.timestamp,
         		swipe: isPresent,
-        		category: 'ramp'
+        		//category: 'ramp'
+                category: selectedIssue.description
         	};
-
+            console.log(selectedIssue);
         	MongoPOST(dataModel);
+            CartodbPOST(dataModel,selectedIssue.type);
         };
 
         function MongoPOST(data) {
@@ -52,6 +58,23 @@ angular.module('swipe4goodApp')
             error(function(status) {
                 //your code when fails
                 console.log('$service swipe - MongoPOST - onError - status:%O', status);
+            });
+        };
+
+        function CartodbPOST(data,idIssue){
+            var url = "https://swipe4good.cartodb.com/api/v2/sql?q=INSERT INTO pruebapuntosalicante (the_geom,category, lat, long, swipe, timestapm) VALUES (ST_SetSRID(ST_Point("+data.long+","+data.lat+"),4326),"+ idIssue +", "+data.lat+", "+data.long+", "+data.swipe+", 1456504907)&api_key=89fc33018aeabfe97b8d2201f629c93d6233e28b";
+            $http({
+                method: 'GET',
+                data: JSON.stringify(data),
+                url: url
+            }).
+            success(function(status) {
+                //your code when success
+                console.log('$service swipe - CartoPOST - onSuccess - status:%O', status);
+            }).
+            error(function(status) {
+                //your code when fails
+                console.log('$service swipe - CartoPOST - onError - status:%O', status);
             });
         };
         /*
