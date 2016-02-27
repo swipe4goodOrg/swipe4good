@@ -26,7 +26,7 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: '/login'
+        redirectTo: '/splash'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -37,11 +37,6 @@ angular
         templateUrl: 'views/swipe.html',
         controller: 'SwipeCtrl',
         controllerAs: 'swipe'
-      })
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'login'
       })
       .when('/rankings', {
         templateUrl: 'views/rankings.html',
@@ -57,6 +52,11 @@ angular
         templateUrl: 'views/opendata.html',
         controller: 'OpendataCtrl',
         controllerAs: 'opendata'
+      })
+      .when('/splash', {
+        templateUrl: 'views/splash.html',
+        controller: 'SplashCtrl',
+        controllerAs: 'splash'
       })
       .otherwise({
         redirectTo: '/'
