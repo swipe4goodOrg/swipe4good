@@ -20,7 +20,8 @@ angular
     'ngMessages',
     'ngMaterial',
     'datatables',
-    'ngGeolocation'
+    'ngGeolocation',
+    'ngCsv'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -46,11 +47,16 @@ angular
         templateUrl: 'views/rankings.html',
         controller: 'RankingsCtrl',
         controllerAs: 'rankings'
-    })
+      })
       .when('/cartodb', {
         templateUrl: 'views/cartodb.html',
         controller: 'CartodbCtrl',
         controllerAs: 'cartodb'
+      })
+      .when('/opendata', {
+        templateUrl: 'views/opendata.html',
+        controller: 'OpendataCtrl',
+        controllerAs: 'opendata'
       })
       .otherwise({
         redirectTo: '/'
