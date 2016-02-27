@@ -1,12 +1,34 @@
-<div class="swipe">
-<div class="swipe-inner">
-    <input id="slide" type="range" min="0" max="100" step="2" ng-model="swipe.value" ng-change="swipeValueChanged()"/>
+
+<div class="lock-size" layout="row" layout-align="center center">
+<md-fab-speed-dial md-open="issuesButtonExpanded" md-direction="down" >
+        <md-fab-trigger>
+              <md-button aria-label="menu" class="md-fab md-warn" ng-click="toggleIssuesButton()">
+                <md-icon md-svg-src="{{selectedButtonIcon}}"></md-icon>
+              </md-button>
+        </md-fab-trigger>
+        <md-fab-actions ng-repeat="issue in recentIssues">
+            <md-button aria-label="{{issue.label}}" class="md-fab md-raised" ng-click="changeIssue(issue)">
+                <md-icon md-svg-src="{{issue.src}}" aria-label="{{issue.label}}"></md-icon>
+            </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
 </div>
+
+
+<section class="issue-container" layout="column" layout-align="center center" layout-wrap>
+    <md-icon md-svg-src="{{selectedIssue.src}}" aria-label="android "></md-icon>
+    <span class="issue-desc">{{selectedIssue.description}}</span>
+</section>
+
+<div class="swipe">
+    <div class="swipe-inner">
+        <input id="slide" type="range" min="0" max="100" step="2" ng-model="swipe.value" ng-change="swipeValueChanged()" ng-mouseup="swipeMouseUp()"/>
+    </div>
 </div>
 
 <div id="red-cover"></div>
 <div id="green-cover"></div>
 
 
-<h1>Geolocation test: Location = {{myPosition}}</h1>
-<button ng-click="getGeoLocation()" type="button" class="btn btn-info">Get geolocation</button>
+<!--<h1>Geolocation test: Location = {{myPosition}}</h1>
+<button ng-click="getGeoLocation()" type="button" class="btn btn-info">Get geolocation</button>-->
