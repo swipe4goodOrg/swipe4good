@@ -59,9 +59,9 @@ angular.module('swipe4goodApp')
 
            cartodb.createVis('map', 'https://swipe4good.cartodb.com/api/v2/viz/cf5f6fc4-dcc9-11e5-a11c-0e3ff518bd15/viz.json', {
                         shareable: true,
-                        title: true,
-                        description: true,
-                        search: true,
+                        //title: true,
+                        //description: true,
+                        //search: true,
                         tiles_loader: true,
                         //center_lat: 0,
                         //center_lon: 0,
