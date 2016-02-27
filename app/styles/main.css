@@ -287,6 +287,7 @@ z-index: 10000;
     background-color:#00802b;   
 }
 
+
 md-toolbar{
  background-color:#f7786b !important;   
 }
@@ -294,4 +295,14 @@ md-toolbar{
 .button-fav{
  background-color:#FFBBBB !important;
  border: 1px #BB9999 solid;
+}
+/*********************************************
+*
+* Open data view
+*
+**********************************************/
+button.btnExport{
+  border:none;
+  background-color: #fbb;
+  color: #000;
 }
