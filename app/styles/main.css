@@ -286,3 +286,15 @@ z-index: 10000;
 #map>div:nth-child(2){
   
 }
+
+
+/*********************************************
+*
+* Open data view
+*
+**********************************************/
+button.btnExport{
+  border:none;
+  background-color: #fbb;
+  color: #000;
+}
