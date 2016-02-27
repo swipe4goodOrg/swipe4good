@@ -8,13 +8,16 @@
  * Controller of the swipe4goodApp
  */
 angular.module('swipe4goodApp')
-    .controller('SwipeCtrl', ['$scope', '$http', '$geolocation', '$mdToast', function ($scope, $http, $geolocation, $mdToast) {
+    .controller('SwipeCtrl', ['$scope', '$http', '$geolocation', '$mdToast', 'swipe', function ($scope, $http, $geolocation, $mdToast, swipe) {
 
 
 
         function init() {
             //testMongoPOST();
             //testMongoGET();
+            
+            
+            
             $scope.getGeoLocation = getGeoLocation;
 
             $scope.swipe = {};
@@ -68,11 +71,17 @@ angular.module('swipe4goodApp')
             }
 
             $scope.tagYes = function (issue) {
-
+getGeoLocation().then(function (position) {
+        		var myPosition = transformPosition(position);
+        		swipe.right($scope.myPosition);
+        	});
             }
 
             $scope.tagNo = function (issue) {
-
+                getGeoLocation().then(function (position) {
+        		var myPosition = transformPosition(position);
+        		swipe.left(myPosition);	
+        	});
             }
 
             $scope.toggleIssuesButton = function () {
@@ -174,8 +183,6 @@ angular.module('swipe4goodApp')
                     console.log("major " + $scope.swipe.value);
                 }
             }
-
-
         };
         init();
 

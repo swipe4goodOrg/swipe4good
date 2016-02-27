@@ -1,0 +1,26 @@
+<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+	<div>
+		<h1>Raw Data</h1>
+		<button id="btnExport" type="button" ng-csv="swipes" filename="data.csv" disable>Export</button>
+	    <table datatable="ng" class="row-border hover">
+	        <thead>
+	        <tr>
+	            <th>Lat</th>
+	            <th>Long</th>
+	            <th>Timestamp</th>
+	            <th>Swipe</th>
+	            <th>Category</th>
+	        </tr>
+	        </thead>
+	        <tbody>
+	        <tr ng-repeat="swip in swipes">
+	            <td>{{ swip.lat }}</td>
+	            <td>{{ swip.long }}</td>
+	            <td>{{ swip.timestamp }}</td>
+	            <td>{{ swip.swipe }}</td>
+	            <td>{{ swip.category }}</td>
+	        </tr>
+	        </tbody>
+	    </table>
+	</div>
+</section>

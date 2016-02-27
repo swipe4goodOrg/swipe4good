@@ -5,5 +5,41 @@
 	frameborder='0'
 	src='https://swipe4good.cartodb.com/viz/5c21f48a-dc9e-11e5-befa-0e787de82d45/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 -->
+<style>
+#layer_selector {
+        position: absolute;
+        top: 150px;
+        right: 20px;
+        padding: 0;
+      }
+      #layer_selector ul {
+        padding: 0; margin: 0;
+        list-style-type: none;
+      }
+      #layer_selector li {
+        border-bottom: 1px solid #999;
+        padding: 15px 30px;
+        font-family: "Helvetica", Arial;
+        font-size: 13px;
+        color: #444;
+        cursor: auto;
+      }
+      #layer_selector li:hover {
+        background-color: #F0F0F0;
+        cursor: pointer;
+      }
+      #layer_selector li.selected {
+        background-color: #EEE;
+      }
+      </style>
+<div id="map" style="height: 520px; padding: 0; margin: 0;">
+<div id="layer_selector" class="cartodb-infobox">
+      <ul>
+        <li data="all" class="selected">All</li>
+        <li data="true">true</li>
+        <li data="false">false</li>
+        
+      </ul>
+    </div>
 
-<div id="map" style="height: 520px; padding: 0; margin: 0;"></div>
+</div>

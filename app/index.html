@@ -13,11 +13,16 @@
     <link rel="stylesheet" href="bower_components/cartodb.js/themes/css/cartodb.css" />
     <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <!--json to csv-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.min.js">
   </head>
   <body ng-app="swipe4goodApp">
     <!--[if lte IE 8]>
@@ -50,6 +55,7 @@
             <md-button ng-click="changeView('/swipe')">Swipe!</md-button>
             <md-button ng-click="changeView('/cartodb')">Maps</md-button>
             <md-button ng-click="changeView('/rankings')">Rankings</md-button>
+            <md-button ng-click="changeView('/opendata')">OpenData</md-button>
           </section>
       </md-content>
     </md-sidenav>
@@ -57,7 +63,7 @@
       </md-content>
       </section>
 
-      <div ng-view=""></div>
+      <div id="view" ng-view=""></div>
       
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -99,12 +105,16 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/swipe.js"></script>
-        <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/rankings.js"></script>
         <script src="scripts/controllers/cartodb.js"></script>
+        <script src="scripts/services/swipe.js"></script>
+        <script src="scripts/controllers/splash.js"></script>
         <!-- endbuild -->
         
         <script src="scripts/controllers/leftNav.js"></script>
         <script src="scripts/controllers/topNav.js"></script>
+        <script src="scripts/controllers/opendata.js"></script>
+        <!--json to csv-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.js"></script>
 </body>
 </html>
